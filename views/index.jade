@@ -1,3 +1,10 @@
 extend layout
 
 block products
+  section(class="col-xs-6 col-md-4 item")
+    each item in store
+      h4(class="item-name")= item.name
+      p(class="item-color")= item.color
+      p(class="item-price")= item.price
+      p(class="item-quantity")= item.quantity
+      button(class="add btn btn-primary") Add

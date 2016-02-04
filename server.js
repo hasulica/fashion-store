@@ -1,6 +1,7 @@
 'use strict'
 
 var express = require('express');
+var data = require('./store.json');
 
 var app = express();
 
@@ -15,5 +16,5 @@ app.listen('3000',function(){
 });
 
 app.get('/',function(req,res){
-  res.render('index');
+  res.render('index', {store: data});
 })
