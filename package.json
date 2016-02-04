@@ -1,0 +1,17 @@
+{
+  "name": "fashion_store",
+  "version": "1.0.0",
+  "description": "Clothing Store",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Radu Asandei",
+  "license": "ISC"
+}
