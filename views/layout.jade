@@ -4,11 +4,29 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title Fashion Store
     link(rel='stylesheet', href='../node_modules/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='public/css/style.css')
   body(class="container-fluid")
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') Fashion Store
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            block cart    
   header
     section#title
-    block cart
   main
     .error
     block products
   footer
+    script(src='/javascript/jquery-2.2.0.min.js')
+    script(src='/javascript/js.cookie.js')
+    script(src='/javascript/bootstrap.min.js')
+    script(src='/javascript/Voucher.js')
+    script(src='/javascript/ShoppingCart.js')
+    script(src='/javascript/store.json')
+    script(src='/javascript/main.js')

@@ -84,8 +84,13 @@ describe("ShoppingCart", function() {
     expect(function(){shoppingCart.applyVoucher(voucherFifteen)}).toThrow(new Error("Your order must be over £75 and you must have purchased at least one footwear item to apply this voucher."));
   });
 
+  it("cannot add voucher to empty cart", function(){
+    expect(function(){shoppingCart.applyVoucher(voucherFive)}).toThrow(new Error("No items in cart yet!"));
+  });
+
   it("cannot add items our of order to cart", function(){
     expect(function(){shoppingCart.add(itemFour)}).toThrow(new Error("Item out of stock!"));
   });
+
 
 });

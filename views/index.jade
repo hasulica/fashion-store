@@ -1,10 +1,36 @@
 extend layout
 
+block cart
+    ul.nav.navbar-nav.pull-right.cart
+     li
+      p#cart-text Your cart:
+      p#item-count 0 items, 
+      p#balance £0
+      button#checkout-button.btn.btn-lg Checkout
 block products
-  section(class="col-xs-6 col-md-4 item")
-    each item in store
-      h4(class="item-name")= item.name
-      p(class="item-color")= item.color
-      p(class="item-price")= item.price
-      p(class="item-quantity")= item.quantity
-      button(class="add btn btn-primary") Add
+  .container
+    .row
+      .col-md-3
+        .list-group
+          a.list-group-item(href='#') Women's Footwear
+          a.list-group-item(href='#') Women's Casualwear
+          a.list-group-item(href='#') Women's Formalwear
+          a.list-group-item(href='#') Men's Footwear
+          a.list-group-item(href='#') Men's Casualwear
+          a.list-group-item(href='#') Men's Formalwear
+        .list-group
+          button#5.voucher.btn.btn-primary.btn-lg Add £5 voucher!
+          button#10.voucher.btn.btn-primary.btn-lg Add £10 voucher!
+          button#15.voucher.btn.btn-primary.btn-lg Add £15 voucher!
+      .col-md-9.item
+        .row
+          each item, index in store
+            .col-sm-4.col-lg-4.col-md-4
+              .thumbnail
+                img(src='http://placehold.it/320x320', alt='')
+                .caption
+                  h4.pull-right.item-price= item.price
+                  h4= item.name
+                  h4.item-color= item.color
+                  button(class="add btn btn-primary btn-sm" index="#{index}") Add
+                  button(class="remove btn btn-primary btn-sm" index="#{index}") Remove

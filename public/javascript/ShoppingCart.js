@@ -24,6 +24,9 @@ ShoppingCart.prototype.remove = function(item) {
 };
 
 ShoppingCart.prototype.applyVoucher = function(voucher) {
+  if(this.totalBalance === 0) {
+    throw new Error("No items in cart yet!");
+  }
   if(voucher.amount === 10 && this.totalBalance < 50) {
     throw new Error("Your order must be over £50 to apply this voucher.");
   }
