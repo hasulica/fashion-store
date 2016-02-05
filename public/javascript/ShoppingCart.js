@@ -3,7 +3,12 @@
 function ShoppingCart() {
   this.contents = [];
   this.totalBalance = 0;
+  this.voucher = false;
 };
+
+ShoppingCart.prototype.changeBalance = function(amount) {
+  this.totalBalance += amount;
+}
 
 ShoppingCart.prototype.add = function(item) {
   if (parseInt(item.quantity) === 0) {
@@ -11,7 +16,7 @@ ShoppingCart.prototype.add = function(item) {
   }
   this.contents.push(item);
   item.quantity --;
-  this.totalBalance += parseFloat(item.price);
+  this.changeBalance(parseFloat(item.price));
 };
 
 ShoppingCart.prototype.remove = function(item) {
@@ -20,7 +25,7 @@ ShoppingCart.prototype.remove = function(item) {
     this.contents.splice( index, 1 );
   }
   item.quantity ++;
-  this.totalBalance -= parseFloat(item.price);
+  this.changeBalance(- parseFloat(item.price));
 };
 
 ShoppingCart.prototype.applyVoucher = function(voucher) {
@@ -35,7 +40,11 @@ ShoppingCart.prototype.applyVoucher = function(voucher) {
       throw new Error("Your order must be over £75 and you must have purchased at least one footwear item to apply this voucher.");
     }
   }
-  this.totalBalance -= voucher.amount;
+  if(this.voucher) {
+    throw new Error("You can only add one voucher!");
+  }
+  this.voucher = true;
+  this.changeBalance(-voucher.amount);
 };
 
 ShoppingCart.prototype.shoesInCart = function() {

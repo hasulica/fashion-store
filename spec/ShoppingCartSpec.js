@@ -92,5 +92,10 @@ describe("ShoppingCart", function() {
     expect(function(){shoppingCart.add(itemFour)}).toThrow(new Error("Item out of stock!"));
   });
 
+  it("cannot add more than one voucher", function(){
+    shoppingCart.add(item);
+    shoppingCart.applyVoucher(voucherFive);
+    expect(function(){shoppingCart.applyVoucher(voucherFive)}).toThrow(new Error("You can only add one voucher!"));
+  });
 
 });
