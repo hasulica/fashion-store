@@ -23,9 +23,9 @@ ShoppingCart.prototype.remove = function(item) {
   var index = this.contents.indexOf(item);
   if (index >= 0) {
     this.contents.splice( index, 1 );
+    item.quantity ++;
+    this.changeBalance(- parseFloat(item.price));
   }
-  item.quantity ++;
-  this.changeBalance(- parseFloat(item.price));
 };
 
 ShoppingCart.prototype.applyVoucher = function(voucher) {

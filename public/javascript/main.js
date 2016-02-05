@@ -22,7 +22,7 @@ $('.item .add').on('click', function(event){
     });
     $('.error').html(err);
   }
-  $('#item-count').html(shoppingCart.contents.length + ' items.');
+  $('#item-count').html(shoppingCart.contents.length + ' items,');
   $('#balance').html('£' + shoppingCart.totalBalance);
 });
 
@@ -39,14 +39,14 @@ $('.voucher').on('click', function(event){
     });
     $('.error').html(err);
   }
-  $('#item-count').html(shoppingCart.contents.length + ' items.');
+  $('#item-count').html(shoppingCart.contents.length + ' items,');
   $('#balance').html('£' + shoppingCart.totalBalance);
 });
 
 $('.item .remove').on('click', function(event){
   event.preventDefault();
   shoppingCart.remove(storeItems[this.getAttribute('index')]);
-  $('#item-count').html(shoppingCart.contents.length + ' items.');
+  $('#item-count').html(shoppingCart.contents.length + ' items,');
   $('#balance').html('£' + shoppingCart.totalBalance);
 });
 
