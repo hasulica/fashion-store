@@ -1,7 +1,7 @@
 'use strict'
 
 var express = require('express');
-var data = require('./public/javascript/store.json');
+var data = require('./public/javascript/data/store.json');
 
 var app = express();
 

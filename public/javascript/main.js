@@ -5,7 +5,7 @@ $( document ).ready(function() {
   $('.error').hide();
 });
 
-$.get('/javascript/store.json', function(data){
+$.get('/javascript/data/store.json', function(data){
   storeItems = data;
 });
 
